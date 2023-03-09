@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useRef} from 'react'
 
-function App() {
+import Burger from './img/burger.png'
+
+import {
+  Container,
+  ContainerItens,
+  Image,
+  H1,
+  InputLabel,
+  Input,
+  Button,
+} from './styles';
+
+function App () {
+  const [order, setOrder] = useState([]);
+  const inputOrder = useRef();
+  const inputName = useRef();
+
+
+  async function addNewOrder() {
+    const { data: newOrder } = await {
+      name: inputName.current.value, 
+      order: inputOrder.current.value,
+    };
+
+    setOrder([order, newOrder]);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Container>
+      <ContainerItens>
+        <Image alt="logo-image" src={Burger} />
+        <H1>Faça seu pedido!</H1>
+
+        <InputLabel>Pedido</InputLabel> 
+        <Input ref={inputOrder} placeholder='Digite seu pedido'></Input>
+        
+        <InputLabel>Nome do Cliente</InputLabel>
+        <Input ref={inputName} placeholder='Digite seu nome'></Input>
+      
+        <Button type={'submit'} onClick={addNewOrder}>Novo Pedido</Button>
+
+      </ContainerItens>
+    </Container>
+    );
 }
 
-export default App;
+export default App
