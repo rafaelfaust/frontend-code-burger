@@ -14,9 +14,8 @@ export const Container = styled.div`
 `;
 
 export const Image = styled.img`
-    width: 246px;
+    width: 342px;
     height: 354px;
-    align-self: center;
 `;
 
 export const ContainerItens = styled.div` 
@@ -40,6 +39,30 @@ export const H1 = styled.h1`
 
 `;
 
+export const InputLabel = styled.p`
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    padding-left: 25px;
+`;
+
+export const Input = styled.input`
+    color: #ffffff;
+    width: 342px;
+    height: 58px;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+    padding-left: 25px;
+    border: none;
+    outline: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 30px;
+`;
 
 export const Button = styled.button`
     width: 342px;
@@ -53,40 +76,4 @@ export const Button = styled.button`
     color: #FFFFFF;
     cursor: pointer;
     margin-top: 46px;
-`;
-
-export const Order = styled.li`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: white;
-    width: 342px;
-    height: 58px;
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 14px;
-    border: none;
-    outline: none;
-    margin-top: 28px;
-    p {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 28px;
-    }
-    button {
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-
-    &:hover {
-        opacity: 0.5;
-    }
-
-    &:active {
-        color:red;
-    }
-
-
 `;

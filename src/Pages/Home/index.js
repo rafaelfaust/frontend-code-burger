@@ -1,6 +1,9 @@
 import React, { useState, useRef} from 'react'
+import { useHistory } from 'react-router-dom'
 
-import Burger from './img/burger.png'
+import Axios from 'axios'
+
+import Burger from '../../img/burger.png'
 
 import {
   Container,
@@ -13,18 +16,21 @@ import {
 } from './styles';
 
 function App () {
-  const [order, setOrder] = useState([]);
+  const [orders, setOrders] = useState([]);
   const inputOrder = useRef();
   const inputName = useRef();
+  const history = useHistory();
 
 
   async function addNewOrder() {
-    const { data: newOrder } = await {
-      name: inputName.current.value, 
-      order: inputOrder.current.value,
-    };
+    const { data: newOrder } = await Axios.post("http://localhost:3001/orders", {
+      list: inputOrder.current.value, 
+      name: inputName.current.value,
+    });
 
-    setOrder([order, newOrder]);
+    setOrders([orders, newOrder]);
+
+    history.push('/orders');
   }
 
   return (
@@ -39,7 +45,7 @@ function App () {
         <InputLabel>Nome do Cliente</InputLabel>
         <Input ref={inputName} placeholder='Digite seu nome'></Input>
       
-        <Button type={'submit'} onClick={addNewOrder}>Novo Pedido</Button>
+        <Button onClick={addNewOrder}>Novo Pedido</Button>
 
       </ContainerItens>
     </Container>

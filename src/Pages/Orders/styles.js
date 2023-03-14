@@ -61,7 +61,7 @@ export const Order = styled.li`
     align-items: center;
     color: white;
     width: 342px;
-    height: 58px;
+    height: 101px;
     background: rgba(255, 255, 255, 0.25);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 14px;
@@ -71,8 +71,8 @@ export const Order = styled.li`
     p {
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 20px;
     }
     button {
         background: none;
@@ -89,4 +89,9 @@ export const Order = styled.li`
     }
 
 
+`;
+
+export const Orders = styled.div` 
+    display: flex;
+    flex-direction: column;
 `;
